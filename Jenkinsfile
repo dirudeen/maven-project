@@ -80,10 +80,10 @@ pipeline {
                 label "prodServer"
             }
             steps {
-                dir('/var/www/html') {
+                dir('/tmp/deploy') {
                     unstash "maven-build"
                     sh """
-                    pwd
+                    sudo mv webapp.war /var/www/html/
                     cd /var/www/html/
                     sudo jar -xvf webapp.war
                     """
