@@ -62,16 +62,16 @@ pipeline {
                 label "devServer"
             }
             steps {
-                dir('/var/www/html') {
+                dir('webapp/target/') {
                     unstash "maven-build"
+                }
+                dir('/var/www/html') {
                     sh """
-                    pwd
-                    cd /var/www/html/
+                    sudo mv "$WORKSPACE"/webapp/target/webapp.war .
                     sudo jar -xvf webapp.war
                     """
                 }
-            }
-        }
+            }   
         stage("deploy_prod") {
             when { expression { params.ENVIRONMENT == 'prod'} 
             beforeAgent true}
