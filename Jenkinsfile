@@ -19,6 +19,24 @@ pipeline {
                 sh 'mvn clean package'
                 echo "hello $NAME ${params.LASTNAME}"
             }
+        }
+
+        stage("Test") {
+            parallel {
+                stage("test A") {
+                    steps {
+                        echo "this is the test A parallel stage"
+                    }
+
+                }
+                stage("test B") {
+                    steps {
+                        echo "this is the test B parallel stage"
+                    }
+
+                }
+
+            }
 
             post {
                 success {
@@ -27,11 +45,6 @@ pipeline {
             }
 
         }
-        // stage("Test") {
-        //     steps {
-        //         echo "this is the test stage"
-        //     }
-        // }
         // stage("Deploy") {
         //     steps {
         //         echo "this is the Deployment stage"
