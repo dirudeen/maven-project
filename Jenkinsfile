@@ -56,7 +56,7 @@ pipeline {
 
         }
         stage("deploy_dev") {
-            when { expression { prams.ENVIRONMENT == 'dev'} 
+            when { expression { params.ENVIRONMENT == 'dev'} 
             beforeAgent true}
             agent{
                 label "devServer"
@@ -73,7 +73,7 @@ pipeline {
             }
         }
         stage("deploy_prod") {
-            when { expression { prams.ENVIRONMENT == 'prod'} 
+            when { expression { params.ENVIRONMENT == 'prod'} 
             beforeAgent true}
             agent{
                 label "prodServer"
