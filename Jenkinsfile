@@ -67,7 +67,7 @@ pipeline {
                     sh """
                     pwd
                     cd /var/www/html/
-                    jar -xvf webapp.war
+                    sudo jar -xvf webapp.war
                     """
                 }
             }
@@ -84,7 +84,7 @@ pipeline {
                     sh """
                     pwd
                     cd /var/www/html/
-                    jar -xvf webapp.war
+                    sudo jar -xvf webapp.war
                     """
                 }
             }
