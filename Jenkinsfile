@@ -71,7 +71,9 @@ pipeline {
                     sudo jar -xvf webapp.war
                     """
                 }
-            }   
+            }
+
+        }
         stage("deploy_prod") {
             when { expression { params.ENVIRONMENT == 'prod'} 
             beforeAgent true}
