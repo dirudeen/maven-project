@@ -48,7 +48,7 @@ pipeline {
 
             post {
                 success {
-                    dir('/webpp/target/') {
+                    dir('/webapp/target/') {
                         stash includes: '*.war', name: 'maven-builds'
                     }
                 }
