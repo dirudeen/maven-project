@@ -67,7 +67,8 @@ pipeline {
                 }
                 dir('/var/www/html') {
                     sh """
-                    sudo mv "$WORKSPACE"/webapp/target/webapp.war .
+                    pwd
+                    cd /var/www/html/
                     sudo jar -xvf webapp.war
                     """
                 }
