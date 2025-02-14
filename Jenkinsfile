@@ -1,14 +1,23 @@
 pipeline {
     agent any
 
+    parameters {
+        string defaultValue: 'Colley', name: 'LASTNAME'
+    }
+
     tools {
         maven 'mymaven'
+    }
+    
+    environment {
+        NAME = "Hadiru"
     }
 
     stages {
         stage("Build") {
             steps {
                 sh 'mvn clean package'
+                echo 'hello $NAME ${params.LASTNAME}'
             }
 
             post {
