@@ -62,10 +62,10 @@ pipeline {
                 label "devServer"
             }
             steps {
-                dir('~/') {
+                dir('/tmp/deploy') {  // Use a temp folder to avoid permission issues
                     unstash "maven-build"
                     sh """
-                    pwd
+                    sudo mv webapp.war /var/www/html/
                     cd /var/www/html/
                     sudo jar -xvf webapp.war
                     """
