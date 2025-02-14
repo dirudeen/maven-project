@@ -62,7 +62,7 @@ pipeline {
                 label "devServer"
             }
             steps {
-                dir('webapp/target/') {
+                dir('~/') {
                     unstash "maven-build"
                     sh """
                     pwd
