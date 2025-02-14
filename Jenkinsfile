@@ -64,8 +64,6 @@ pipeline {
             steps {
                 dir('webapp/target/') {
                     unstash "maven-build"
-                }
-                dir('/var/www/html') {
                     sh """
                     pwd
                     cd /var/www/html/
