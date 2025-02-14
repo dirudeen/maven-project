@@ -48,8 +48,8 @@ pipeline {
 
             post {
                 success {
-                    dir('/webapp/target/') {
-                        stash includes: '*.war', name: 'maven-builds'
+                    dir('webapp/target/') {
+                        stash includes: "*.war", name: 'maven-build'
                     }
                 }
             }
